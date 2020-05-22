@@ -1,5 +1,6 @@
 import React from 'react';
-import Denomination from "./Denomination";
+import Login from "./components/Login";
+// import Denomination from "./Denomination";
 // import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +10,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Denomination  denominations={denominations.reverse()}/>
+        {/*<Denomination  denominations={denominations.reverse()}/>*/}
+        <Login/>
       </header>
     </div>
   );

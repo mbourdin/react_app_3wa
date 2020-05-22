@@ -35,18 +35,21 @@ class Token extends React.Component{
         }
         return (
             <table>
+                <tbody>
                 {
                     tokenArray.map((token)=>{
                         if(token[1]!==0)
                         {
                             return (
-                                <tr key={token[0]}><td>token {token[0]}</td><td>: {token[1]}</td> </tr>
+                                <tr key={token[0]}>
+                                    <td>token {token[0]}</td><td>: {token[1]}</td>
+                                </tr>
                             )
                         }
                         return null
                     })
                 }
-
+                </tbody>
             </table>
         )
 
