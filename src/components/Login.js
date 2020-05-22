@@ -1,4 +1,6 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
+
 class Login extends React.Component{
     constructor(props) {
         super(props);
@@ -15,6 +17,12 @@ class Login extends React.Component{
     handleSubmit=(event)=>{
         event.preventDefault();
         console.log(this.isValid());
+        if(this.isValid())
+        {
+            localStorage.setItem("authEmail",this.form.email);
+            localStorage.setItem("authPassword",this.form.password);
+            this.setState({});
+        }
     };
     handleChange=(event)=>{
         this.form[event.currentTarget.name]=event.currentTarget.value;
@@ -22,7 +30,19 @@ class Login extends React.Component{
     };
 
     render() {
-
+        if(this.props.location.pathname==="/logout")
+        {
+            localStorage.clear();
+            return (<Redirect to="/login"/>);
+        }
+        this.form.password=localStorage.getItem("authPassword");
+        this.form.email=localStorage.getItem("authEmail");
+        if(this.isValid())
+        {
+            return(
+                <Redirect to="/"/>
+            )
+        }
         return(
         <form >
             <label>email</label><input type="email" name="email" onChange={this.handleChange}/>
