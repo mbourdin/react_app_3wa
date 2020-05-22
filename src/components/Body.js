@@ -12,11 +12,11 @@ class Body extends React.Component{
               <Route exact path="/" component={Home}/>
 
               <Route path="/login" render={(props)=>(
-                  <Login {...props}/>
+                  <Login {...props} setLogged={this.props.setLogged} logged={this.props.logged}/>
               )}/>
 
               <Route path="/logout" render={(props)=>(
-                  <Login {...props}/>
+                  <Login {...props} setLogged={this.props.setLogged} logged={this.props.logged}/>
               )}/>
 
               <Route path="/dashboard" component={Dashboard}/>

@@ -4,7 +4,14 @@ import {Redirect} from "react-router-dom";
 class Login extends React.Component{
     constructor(props) {
         super(props);
-        this.form={email:"",password:""};
+        this.form={
+            email:localStorage.getItem("authPassword"),
+            password:localStorage.getItem("authEmail")
+        };
+
+        if(this.isValid())
+        {   this.props.setLogged(true);
+        }
     }
     static validLogin={email:"bourdin.maurice@gmail.com",password:"1983"}
     isValid=()=>{
@@ -21,27 +28,25 @@ class Login extends React.Component{
         {
             localStorage.setItem("authEmail",this.form.email);
             localStorage.setItem("authPassword",this.form.password);
-            this.setState({});
+            this.props.setLogged(true);
         }
     };
     handleChange=(event)=>{
         this.form[event.currentTarget.name]=event.currentTarget.value;
-        console.log(this.form);
+        //console.log(this.form);
     };
-
-    render() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.location.pathname==="/logout")
         {
             localStorage.clear();
-            return (<Redirect to="/login"/>);
+            this.props.setLogged(false);
         }
-        this.form.password=localStorage.getItem("authPassword");
-        this.form.email=localStorage.getItem("authEmail");
-        if(this.isValid())
+    }
+
+    render() {
+        if(this.props.logged)
         {
-            return(
-                <Redirect to="/"/>
-            )
+            return (<Redirect to="/Dashboard"/>);
         }
         return(
         <form >

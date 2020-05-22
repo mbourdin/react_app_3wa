@@ -9,18 +9,27 @@ import './App.css';
 
 // const denominations=[1,5,10,20,50,100,200];
 
-function App() {
-  return (
+class  App extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state={logged:false};
+    }
+    setLogged=logged=>
+    {
+        this.setState({logged:logged});
+    }
+    render(){
+    return (
     <div className="App">
         {/*<Denomination  denominations={denominations.reverse()}/>*/}
         <Router>
-            <Menu/>
+            <Menu logged={this.state.logged} />
             <Switch>
-                <Body />
+                <Body logged={this.state.logged} setLogged={this.setLogged}/>
             </Switch>
         </Router>
     </div>
-  );
+  );}
 }
 
 export default App;
