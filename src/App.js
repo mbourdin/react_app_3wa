@@ -13,7 +13,13 @@ import './App.css';
 class  App extends React.Component{
     constructor(props) {
         super(props);
-        this.state={logged:false};
+        if(localStorage.getItem("token")!=="true") {
+            this.state = {logged: false};
+        }
+        else
+        {
+            this.state={logged:true}
+        }
     }
     setLogged=(logged)=>
     {

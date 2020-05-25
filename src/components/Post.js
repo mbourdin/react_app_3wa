@@ -1,4 +1,5 @@
 import React from "react";
+import Dashboard from "./Dashboard";
 class Post extends React.Component{
     static  staticPosts = [
         { id: 16, title: "React JS", content: "Libraire ou Framework ?" },
@@ -25,8 +26,13 @@ class Post extends React.Component{
             postArray[index][1]=post[field];
             index++;
         }
-        return(
-                    <table className="text-left table table-bordered">
+        return(     <div className="row">
+                    <div className="col-3">
+                        <Dashboard />
+                    </div>
+                    <div className="col-9">
+                        <h1>Post {this.props.match.params.id}</h1>
+                <table className="text-left table table-bordered">
                         <tbody>
                         {
                             postArray.map((value,key)=>{
@@ -37,6 +43,8 @@ class Post extends React.Component{
                         }
                         </tbody>
                     </table>
+                    </div>
+                    </div>
         );
     }
 }
