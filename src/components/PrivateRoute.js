@@ -4,6 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 class PrivateRoute extends React.Component{
     constructor(props) {
         super(props);
+
     }
     render(){
         const { children, ...rest } = this.props;
@@ -12,8 +13,7 @@ class PrivateRoute extends React.Component{
             <Route
                 { ...rest }
                 render={ (rest) =>
-                    token ? this.props.children
-                        :
+                    token ? this.props.children :
                         <Redirect
                             to="/login"
                         />

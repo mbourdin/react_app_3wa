@@ -20,7 +20,6 @@ class Token extends React.Component{
             nombre=(currentSomme-remaining)/denomination;
             currentSomme=remaining;
             tokens.set(denomination,nombre);
-            ////console.log(denomination +" "+ nombre +" "+ remaining)
         }
         this.tokens=tokens;
     }

@@ -14,8 +14,9 @@ class Post extends React.Component{
         this.posts=Post.staticPosts;
     }
     render(){
-        console.log(this.props);
         let post=this.posts.find((post)=>(post.id)===Number.parseInt(this.props.match.params.id));
+         //let post=this.posts.find((post)=>(post.id)===27);
+
         let postArray=[];
         let index=0;
         for (let field in post){
@@ -24,7 +25,6 @@ class Post extends React.Component{
             postArray[index][1]=post[field];
             index++;
         }
-        //console.log(postArray);
         return(
                     <table className="text-left table table-bordered">
                         <tbody>
