@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import PrivateRoute from "./PrivateRoute";
 import Post from "./Post";
 class Body extends React.Component{
     render()
@@ -11,15 +12,14 @@ class Body extends React.Component{
           <React.Fragment>
               <Route exact path="/" component={Home}/>
 
-              <Route path="/login" render={(props)=>(
+              <Route path="/(login|logout)/" render={(props)=>(
                   <Login {...props} setLogged={this.props.setLogged} logged={this.props.logged}/>
               )}/>
 
-              <Route path="/logout" render={(props)=>(
-                  <Login {...props} setLogged={this.props.setLogged} logged={this.props.logged}/>
-              )}/>
-
-              <Route path="/dashboard" component={Dashboard}/>
+              {/*<Route path="/dashboard" component={Dashboard}/>*/}
+              <PrivateRoute path="/dashboard">
+                  <Dashboard />
+              </PrivateRoute>
 
               <Route path="/posts/:id" render={(props)=>(
                       <Post {...props} />

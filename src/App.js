@@ -14,7 +14,7 @@ class  App extends React.Component{
         super(props);
         this.state={logged:false};
     }
-    setLogged=logged=>
+    setLogged=(logged)=>
     {
         this.setState({logged:logged});
     }

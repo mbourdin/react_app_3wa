@@ -26,15 +26,17 @@ class Post extends React.Component{
         console.log(postArray);
 
         return(
-                    <div>
+                    <table>
+                        <tbody>
                         {
                             postArray.map((key,value)=>{
                                 return (
-                                    <div key={key}>{key} : {value}</div>
+                                    <tr key={key}><td>{key}</td><td> {value}</td></tr>
                                 );
                             })
                         }
-                    </div>
+                        </tbody>
+                    </table>
         );
     }
 }
