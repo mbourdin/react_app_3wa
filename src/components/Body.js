@@ -16,7 +16,6 @@ class Body extends React.Component{
                   <Login {...props} setLogged={this.props.setLogged} logged={this.props.logged}/>
               )}/>
 
-              {/*<Route path="/dashboard" component={Dashboard}/>*/}
               <PrivateRoute path="/dashboard">
                   <Dashboard />
               </PrivateRoute>

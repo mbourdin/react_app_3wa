@@ -5,7 +5,7 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
         if(this.props.location.pathname==="/logout")
-        {    //console.log("logout");
+        {
             localStorage.clear();
             this.props.setLogged(false);
         }
@@ -23,7 +23,6 @@ class Login extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault();
-        //console.log(this.isValid());
         if(this.isValid())
         {
             localStorage.setItem("token","true");
@@ -32,7 +31,6 @@ class Login extends React.Component{
     };
     handleChange=(event)=>{
         this.form[event.currentTarget.name]=event.currentTarget.value;
-        ////console.log(this.form);
     };
 
 

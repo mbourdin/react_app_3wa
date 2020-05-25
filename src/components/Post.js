@@ -16,7 +16,6 @@ class Post extends React.Component{
     }
     render(){
         let post=this.posts.find((post)=>(post.id)===Number.parseInt(this.props.match.params.id));
-         //let post=this.posts.find((post)=>(post.id)===27);
 
         let postArray=[];
         let index=0;
