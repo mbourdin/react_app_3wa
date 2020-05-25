@@ -15,7 +15,7 @@ class PostsLinks extends React.Component {
                 {
                     this.posts.map((post) => {
                         return (
-                            <li key={post.id}><Link  to={"/posts/"+post.id}>
+                            <li key={post.id} className="text-left"><Link  to={"/posts/"+post.id}>
                                 {post.title}
                             </Link></li>
                         );

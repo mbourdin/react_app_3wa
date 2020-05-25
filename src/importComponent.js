@@ -9,13 +9,13 @@ import DefaultValue,{MYCONST,ReactStatelessComponent,variable} from './component
 import * as Module from './components/ExportComponent';
 
 
-console.log(Module)
+//console.log(Module)
 
-console.log(DefaultValue,MYCONST)
+//console.log(DefaultValue,MYCONST)
 
-console.log(ReactStatelessComponent)
+//console.log(ReactStatelessComponent)
 
-console.log(variable)
+//console.log(variable)
 
 function App(props) {
   return (

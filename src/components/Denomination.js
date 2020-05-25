@@ -8,7 +8,7 @@ class Denomination extends React.Component{
         };
     }
     setSum=(event)=>{
-        //console.log(event.currentTarget.value);
+        ////console.log(event.currentTarget.value);
         if(event.currentTarget.value>0  && Number.isInteger(Number.parseFloat(event.currentTarget.value)))
         {   this.somme=event.currentTarget.value;
         }

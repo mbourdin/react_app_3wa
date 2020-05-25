@@ -14,6 +14,7 @@ class Post extends React.Component{
         this.posts=Post.staticPosts;
     }
     render(){
+        console.log(this.props);
         let post=this.posts.find((post)=>(post.id)===Number.parseInt(this.props.match.params.id));
         let postArray=[];
         let index=0;
@@ -23,15 +24,14 @@ class Post extends React.Component{
             postArray[index][1]=post[field];
             index++;
         }
-        console.log(postArray);
-
+        //console.log(postArray);
         return(
-                    <table>
+                    <table className="text-left table table-bordered">
                         <tbody>
                         {
-                            postArray.map((key,value)=>{
+                            postArray.map((value,key)=>{
                                 return (
-                                    <tr key={key}><td>{key}</td><td> {value}</td></tr>
+                                    <tr key={key}><td>{value[0]}</td><td> {value[1]}</td></tr>
                                 );
                             })
                         }

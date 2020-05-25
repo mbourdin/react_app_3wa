@@ -5,18 +5,11 @@ class Login extends React.Component{
     constructor(props) {
         super(props);
         if(this.props.location.pathname==="/logout")
-        {    console.log("logout");
+        {    //console.log("logout");
             localStorage.clear();
             this.props.setLogged(false);
         }
-        this.form={
-            email:localStorage.getItem("authPassword"),
-            password:localStorage.getItem("authEmail")
-        };
-        if(this.isValid())
-        {   this.props.setLogged(true);
-            localStorage.setItem("token","true");
-        }
+        this.form={};
     }
     static validLogin={email:"bourdin.maurice@gmail.com",password:"1983"}
     isValid=()=>{
@@ -30,26 +23,23 @@ class Login extends React.Component{
 
     handleSubmit=(event)=>{
         event.preventDefault();
-        console.log(this.isValid());
+        //console.log(this.isValid());
         if(this.isValid())
         {
-            localStorage.setItem("authEmail",this.form.email);
-            localStorage.setItem("authPassword",this.form.password);
-            this.props.setLogged(true);
             localStorage.setItem("token","true");
+            this.props.setLogged(true);
         }
     };
     handleChange=(event)=>{
         this.form[event.currentTarget.name]=event.currentTarget.value;
-        //console.log(this.form);
+        ////console.log(this.form);
     };
 
 
     render() {
 
         if(this.props.logged===true)
-        {   console.log("logged in");
-            console.log(this.props.logged)
+        {
             return (<Redirect to="/Dashboard"/>);
         }
         return(

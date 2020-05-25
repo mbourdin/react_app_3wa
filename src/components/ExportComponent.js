@@ -34,7 +34,7 @@ export class ReactClass extends Component{
 
 //Exporter une fonction
 export function fonction(){
-  console.log("fonction");
+  //console.log("fonction");
   return(true);
 }
 export let variable="value";

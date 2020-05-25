@@ -4,7 +4,7 @@ class Menu extends React.Component{
 
     render() {
         return(
-                <ul>
+                <ul className="text-left">
                 <li><Link to="/">home</Link></li>
                     {   !this.props.logged ?
                         <li><Link to="/login">login</Link></li>
